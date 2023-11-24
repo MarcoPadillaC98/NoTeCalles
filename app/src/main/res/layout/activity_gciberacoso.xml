@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.gallery.g_CiberacosoActivity">
+    tools:context=".activity.ui.glosario.g_CiberacosoActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -35,7 +35,7 @@
     <View
         android:id="@+id/view_informacion"
         android:layout_width="380dp"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/style_bordes_edittext"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
     <TextView
         android:id="@+id/textView8"
         android:layout_width="333dp"
-        android:layout_height="215dp"
+        android:layout_height="250dp"
         android:layout_marginTop="40dp"
         android:text="El ciberacoso, también conocido como ciberbullying, es una forma de acoso o hostigamiento que se lleva a cabo a través de medios digitales, como internet, redes sociales, mensajes de texto u otras plataformas electrónicas. Consiste en el envío de amenazas, insultos, difusión de rumores, revelación de información privada o cualquier otro comportamiento agresivo y repetitivo que tiene como objetivo intimidar, humillar o causar daño a una persona."
         android:textAlignment="center"
@@ -55,16 +55,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_Ciberacoso" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/img_volver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

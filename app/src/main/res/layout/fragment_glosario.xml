@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activity.ui.gallery.GalleryFragment" >
+    tools:context=".activity.ui.glosario.GlosarioFragment" >
 
     <ImageView
         android:id="@+id/img_Glosario"
@@ -139,19 +139,6 @@
         app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Laboral" />
-
-    <Button
-        android:id="@+id/btn_Regresar"
-        style="@style/Widget.Material3.Button.IconButton.Filled"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/img_volver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_seleccion"
-         />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.notecalles.activity.ui.gallery;
+package com.example.notecalles.activity.ui.glosario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.notecalles.R;
 
-public class g_CallejeroActivity extends AppCompatActivity {
+public class g_CiberacosoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gcallejero);
+        setContentView(R.layout.activity_gciberacoso);
     }
 }

@@ -3,23 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_mispublicaciones">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.notecalles.activity.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_mispublicaciones"
+        android:name="com.example.notecalles.activity.ui.mispublicaciones.MisPublicacionesFragment"
+        android:label="@string/menu_MisPublicaciones"
+        tools:layout="@layout/fragment_mispublicaciones" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.notecalles.activity.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_glosario"
+        android:name="com.example.notecalles.activity.ui.glosario.GlosarioFragment"
+        android:label="@string/menu_Glosario"
+        tools:layout="@layout/fragment_glosario" >
+        <action
+            android:id="@+id/action_nav_glosario_to_g_LaboralActivity"
+            app:destination="@id/g_LaboralActivity" />
+        <action
+            android:id="@+id/action_nav_glosario_to_g_CallejeroActivity"
+            app:destination="@id/g_CallejeroActivity" />
+        <action
+            android:id="@+id/action_nav_glosario_to_g_CiberacosoActivity"
+            app:destination="@id/g_CiberacosoActivity" />
+
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.notecalles.activity.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_publicar"
+        android:name="com.example.notecalles.activity.ui.publicar.PublicarFragment"
+        android:label="@string/menu_PublicarReporte"
+        tools:layout="@layout/fragment_publicar" />
+    <fragment
+        android:id="@+id/otrasPublicacionesFragment"
+        android:name="com.example.notecalles.activity.ui.otraspublicaciones.OtrasPublicacionesFragment"
+        android:label="@string/menu_OtrasPublicaciones"
+        tools:layout="@layout/fragment_otraspublicaciones" />
+    <fragment
+        android:id="@+id/FAQFragment"
+        android:name="com.example.notecalles.activity.ui.FAQ.FAQFragment"
+        android:label="@string/menu_Ayuda"
+        tools:layout="@layout/fragment_faq" />
+
+    <activity
+        android:id="@+id/g_LaboralActivity"
+        android:name="com.example.notecalles.activity.ui.glosario.g_LaboralActivity"
+        android:label="activity_glaboral"
+        tools:layout="@layout/activity_glaboral" />
+    <activity
+        android:id="@+id/g_CallejeroActivity"
+        android:name="com.example.notecalles.activity.ui.glosario.g_CallejeroActivity"
+        android:label="activity_gcallejero"
+        tools:layout="@layout/activity_gcallejero" />
+    <activity
+        android:id="@+id/g_CiberacosoActivity"
+        android:name="com.example.notecalles.activity.ui.glosario.g_CiberacosoActivity"
+        android:label="activity_gciberacoso"
+        tools:layout="@layout/activity_gciberacoso" />
+
 </navigation>

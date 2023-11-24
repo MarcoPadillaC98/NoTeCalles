@@ -1,4 +1,4 @@
-package com.example.notecalles.activity.ui.home;
+package com.example.notecalles.activity.ui.mispublicaciones;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.notecalles.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+import com.example.notecalles.databinding.FragmentMispublicacionesBinding;
 
-    private FragmentHomeBinding binding;
+public class MisPublicacionesFragment extends Fragment {
+
+    private FragmentMispublicacionesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        MisPublicacionesViewModel homeViewModel =
+                new ViewModelProvider(this).get(MisPublicacionesViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentMispublicacionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;

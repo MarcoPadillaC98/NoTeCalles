@@ -13,13 +13,13 @@
         android:theme="@style/Theme.NoTeCalles"
         tools:targetApi="31">
         <activity
-            android:name=".activity.ui.gallery.g_CiberacosoActivity"
+            android:name=".activity.ui.glosario.g_CiberacosoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ui.gallery.g_CallejeroActivity"
+            android:name=".activity.ui.glosario.g_CallejeroActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ui.gallery.g_LaboralActivity"
+            android:name=".activity.ui.glosario.g_LaboralActivity"
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"

@@ -1,14 +1,14 @@
-package com.example.notecalles.activity.ui.home;
+package com.example.notecalles.activity.ui.mispublicaciones;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MisPublicacionesViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MisPublicacionesViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }
