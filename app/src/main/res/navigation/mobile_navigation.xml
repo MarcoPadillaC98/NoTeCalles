@@ -34,7 +34,7 @@
         android:label="@string/menu_PublicarReporte"
         tools:layout="@layout/fragment_publicar" />
     <fragment
-        android:id="@+id/otrasPublicacionesFragment"
+        android:id="@+id/nav_otrasPublicaciones"
         android:name="com.example.notecalles.activity.ui.otraspublicaciones.OtrasPublicacionesFragment"
         android:label="@string/menu_OtrasPublicaciones"
         tools:layout="@layout/fragment_otraspublicaciones" />
