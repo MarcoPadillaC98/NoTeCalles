@@ -85,11 +85,13 @@
 
     <Button
         android:id="@+id/btnIngresar"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:text="Ingresar"
+        android:backgroundTint="#6C7BA8"
+        android:textColor="#D8CCCC"
         app:icon="@drawable/img_ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

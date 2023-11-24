@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.gallery.g_CiberacosoActivity">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="190dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/img_ciberacoso_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Ciberacoso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ciberacoso"
+        android:fontFamily="@font/bebas_neue"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <View
+        android:id="@+id/view_informacion"
+        android:layout_width="380dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/style_bordes_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Ciberacoso" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="333dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="40dp"
+        android:text="El ciberacoso, también conocido como ciberbullying, es una forma de acoso o hostigamiento que se lleva a cabo a través de medios digitales, como internet, redes sociales, mensajes de texto u otras plataformas electrónicas. Consiste en el envío de amenazas, insultos, difusión de rumores, revelación de información privada o cualquier otro comportamiento agresivo y repetitivo que tiene como objetivo intimidar, humillar o causar daño a una persona."
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Ciberacoso" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/img_volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

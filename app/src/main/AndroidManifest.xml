@@ -13,11 +13,24 @@
         android:theme="@style/Theme.NoTeCalles"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.ui.gallery.g_CiberacosoActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".activity.ui.gallery.g_CallejeroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ui.gallery.g_LaboralActivity"
+            android:exported="false" />
         <activity
             android:name=".RegistroActivity"
+            android:exported="false"
+            android:label="@string/title_activity_inicio"
+            android:theme="@style/Theme.NoTeCalles.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.InicioActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
