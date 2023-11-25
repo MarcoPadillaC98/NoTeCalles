@@ -7,16 +7,204 @@
     tools:context=".activity.ui.publicar.PublicarFragment">
 
     <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
+        android:id="@+id/txtMisPublicaciones"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="28dp"
+        android:text="Crear publicacion"
+        android:textColor="#000000"
+        android:fontFamily="@font/bebas_neue"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.344"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_mispubs"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/img_mispubs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toEndOf="@+id/txtMisPublicaciones"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spn_Elegirtipo"
+        android:layout_width="358dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMisPublicaciones" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/InputHecho"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Describa el hecho"
+        app:counterEnabled="false"
+        app:counterMaxLength="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spn_Elegirtipo"
+        app:startIconDrawable="@drawable/img_parrafo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtHecho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_IngresarMaps"
+        style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+        android:layout_width="369dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:gravity="fill|left"
+        android:text="Indique la ubicacion "
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:icon="@drawable/img_maps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputHecho" />
+
+    <Button
+        android:id="@+id/btn_IngresarImagen"
+        style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+        android:layout_width="369dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:gravity="fill|left"
+        android:text="Suba la imagen del hecho"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:icon="@drawable/photo_upload_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_IngresarMaps" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/InputFecha"
+        android:layout_width="162dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
+        android:hint=""
+        app:counterEnabled="false"
+        app:counterMaxLength="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_IngresarImagen">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="none"
+            android:enabled="false"
+            android:inputType="text"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/InputUsernameCrear"
+        android:layout_width="180dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:hint=""
+        app:counterEnabled="false"
+        app:counterMaxLength="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputFecha">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsernameCrear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="none"
+            android:enabled="false"
+            android:inputType="text"
+            android:textColor="#000000" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/imb_Calendario"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/img_calendar"
+        android:text="Seleccione la fecha"
+        app:icon="@drawable/img_calendar"
+        app:layout_constraintEnd_toStartOf="@+id/InputFecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_IngresarImagen" />
+
+    <CheckBox
+        android:id="@+id/chk_Anonimo"
+        android:layout_width="127dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:text="Anónimo"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toEndOf="@+id/InputUsernameCrear"
+        app:layout_constraintTop_toBottomOf="@+id/InputFecha" />
+
+    <Button
+        android:id="@+id/btn_GuardarPub"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Guardar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:icon="@mipmap/img_save_foreground"
+        app:layout_constraintEnd_toStartOf="@+id/InputFecha"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputUsernameCrear" />
+
+    <Button
+        android:id="@+id/btn_CancelarPub"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="#AE1014"
+        android:text="Guardar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:icon="@drawable/img_cancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toEndOf="@+id/btn_GuardarPub"
+        app:layout_constraintTop_toBottomOf="@+id/chk_Anonimo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
