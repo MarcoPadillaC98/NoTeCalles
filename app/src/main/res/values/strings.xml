@@ -16,4 +16,9 @@
     <string name="menu_OtrasPublicaciones">Otras Publicaciones</string>
     <string name="menu_Glosario">Glosario</string>
     <string name="menu_Ayuda">Ayuda / FAQ</string>
+    <string name="menu_CerrarSesion">Cerrar Sesion</string>
+
+    <string name="calendar_icon">calendar icon</string>
+
+
 </resources>

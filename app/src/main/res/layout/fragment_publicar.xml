@@ -56,7 +56,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spn_Elegirtipo"
-        app:startIconDrawable="@drawable/img_parrafo">
+        app:startIconDrawable="@drawable/img_parrafo"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtHecho"
@@ -79,6 +80,7 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:icon="@drawable/img_maps"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InputHecho" />
@@ -95,6 +97,7 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:icon="@drawable/photo_upload_svgrepo_com"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_IngresarMaps" />
@@ -155,9 +158,10 @@
         android:layout_width="183dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/img_calendar"
         android:text="Seleccione la fecha"
+        android:textColor="@color/black"
         app:icon="@drawable/img_calendar"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/InputFecha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_IngresarImagen" />
@@ -185,6 +189,7 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         app:icon="@mipmap/img_save_foreground"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/InputFecha"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
@@ -201,6 +206,7 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         app:icon="@drawable/img_cancelar"
+        app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toEndOf="@+id/btn_GuardarPub"

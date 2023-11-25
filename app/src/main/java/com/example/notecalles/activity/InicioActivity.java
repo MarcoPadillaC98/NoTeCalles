@@ -30,7 +30,7 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarInicio.toolbar);
-        binding.appBarInicio.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarInicio.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

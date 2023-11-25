@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "693415188344",
+    "project_id": "notecalles-e921e",
+    "storage_bucket": "notecalles-e921e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693415188344:android:1b6ad3a777a2414f411a8d",
+        "android_client_info": {
+          "package_name": "com.example.notecalles"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgJ9Mifdw25ordIttjHnwCOXj90w6nmWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
