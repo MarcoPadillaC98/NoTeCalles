@@ -121,7 +121,6 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/InputNumero"
-
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -163,7 +162,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btn_Registrar"
         style="@style/Widget.Material3.Button.ElevatedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -188,10 +187,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Registrar" />
 
     <Button
-        android:id="@+id/btnCrearcuenta"
+        android:id="@+id/btn_IniciarSesionR"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="140dp"
         android:layout_height="48dp"
@@ -202,7 +201,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Registrar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

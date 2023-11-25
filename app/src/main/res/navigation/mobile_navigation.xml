@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_glosario">
+    app:startDestination="@+id/nav_mispublicaciones">
 
     <fragment
         android:id="@+id/nav_mispublicaciones"

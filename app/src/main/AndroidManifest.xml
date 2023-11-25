@@ -27,10 +27,11 @@
             android:label="@string/title_activity_inicio"
             android:theme="@style/Theme.NoTeCalles.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.InicioActivity"
+            android:name=".LoginActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

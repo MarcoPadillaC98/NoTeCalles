@@ -37,12 +37,6 @@ public class PublicarFragment extends Fragment{
 
         binding = FragmentPublicarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
-
-
-
-
         return root;
     }
 
