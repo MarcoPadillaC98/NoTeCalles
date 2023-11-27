@@ -32,7 +32,7 @@
         android:background="@drawable/style_bordes_etlogin"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputUsername"
+        android:id="@+id/InputUsernameR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputPassword"
+        android:id="@+id/InputPasswordR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputUsername"
+        app:layout_constraintTop_toBottomOf="@+id/InputUsernameR"
         app:startIconDrawable="@drawable/img_password"
         app:endIconMode="password_toggle"
         >
@@ -84,7 +84,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputName"
+        android:id="@+id/InputNameR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/InputPasswordR"
         app:startIconDrawable="@drawable/img_persona">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -105,7 +105,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputApellido"
+        android:id="@+id/InputApellidoR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -114,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputName"
+        app:layout_constraintTop_toBottomOf="@+id/InputNameR"
         app:startIconDrawable="@drawable/img_persona">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -125,7 +125,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputNumero"
+        android:id="@+id/InputNumeroR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -134,7 +134,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputApellido"
+        app:layout_constraintTop_toBottomOf="@+id/InputApellidoR"
         app:startIconDrawable="@drawable/img_phone">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -147,7 +147,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputDocumento"
+        android:id="@+id/InputDocumentoR"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -156,7 +156,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputNumero"
+        app:layout_constraintTop_toBottomOf="@+id/InputNumeroR"
         app:startIconDrawable="@drawable/img_documento">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -183,7 +183,7 @@
         app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputDocumento"
+        app:layout_constraintTop_toBottomOf="@+id/InputDocumentoR"
         app:strokeColor="#4caf50" />
 
     <TextView

@@ -89,8 +89,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        //Sirve para quitar sombra a los textos ya completados
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
