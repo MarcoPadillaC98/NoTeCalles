@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 try{
                     if(validar()){
                         login();
+                        clear();
                     }else{
                         Toast.makeText(LoginActivity.this,"Complete los campos",Toast.LENGTH_SHORT).show();
                     }
@@ -155,18 +156,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("has oprimido el botón atrás")
-                .setContentText("¿Quieres cerrar la aplicación?")
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("Deseas salir de la app")
+                .setContentText("¿Estás seguro?")
                 .setCancelText("No, Cancelar!").setConfirmText("Sí, Cerrar")
-                .showCancelButton(true).setCancelClickListener(sDialog -> {
+                /*.showCancelButton(true).setCancelClickListener(sDialog -> {
                     sDialog.dismissWithAnimation();
                     new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("Operación cancelada")
                             .setContentText("No saliste de la app")
                             .show();
-                }).setConfirmClickListener(sweetAlertDialog -> {
+                })*/.setConfirmClickListener(sweetAlertDialog -> {
                     sweetAlertDialog.dismissWithAnimation();
                     System.exit(0);
                 }).show();
+    }
+
+    private void clear(){
+        username.setText("");
+        password.setText("");
+
+        username.requestFocus();
+
     }
 
     }

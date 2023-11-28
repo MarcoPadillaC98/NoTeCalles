@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.example.notecalles.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,11 +23,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notecalles.databinding.ActivityInicioBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class InicioActivity extends AppCompatActivity {
 
-
-
+    FirebaseUser current;
+    FirebaseAuth mAuth;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInicioBinding binding;
 
@@ -36,9 +41,13 @@ public class InicioActivity extends AppCompatActivity {
 
         binding = ActivityInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
         setSupportActionBar(binding.appBarInicio.toolbar);
+
+        //ini
+        mAuth = FirebaseAuth.getInstance();
+        current = mAuth.getCurrentUser();
+
+
         binding.appBarInicio.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +66,7 @@ public class InicioActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_inicio);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        updateNavHeader();
     }
 
     @Override
@@ -68,11 +78,10 @@ public class InicioActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.it_cerrarsesion:
-                this.logout();
-                break;
-        }return super.onOptionsItemSelected(item);
+        if (item.getItemId()==R.id.it_cerrarsesion){
+            this.logout();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void logout() {
@@ -90,4 +99,38 @@ public class InicioActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public void onBackPressed() {
+
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("Deseas salir de la app")
+                .setContentText("¿Estás seguro?")
+                .setCancelText("No, Cancelar!").setConfirmText("Sí, Cerrar")
+                /*.showCancelButton(true).setCancelClickListener(sDialog -> {
+                    sDialog.dismissWithAnimation();
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("Operación cancelada")
+                            .setContentText("No saliste de la app")
+                            .show();
+                })*/.setConfirmClickListener(sweetAlertDialog -> {
+                    sweetAlertDialog.dismissWithAnimation();
+                    System.exit(0);
+                }).show();
+    }
+
+    public void updateNavHeader(){
+        NavigationView navigationView = binding.navView;
+        View headerView = navigationView.getHeaderView(0);
+        TextView navName = headerView.findViewById(R.id.nav_name);
+        TextView navUser = headerView.findViewById(R.id.nav_username);
+
+        navName.setText(current.getDisplayName());
+        navUser.setText(current.getEmail());
+
+        //
+
+
+
+    }
+
+
 }

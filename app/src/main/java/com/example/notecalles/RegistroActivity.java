@@ -301,6 +301,8 @@ public class RegistroActivity extends AppCompatActivity {
         celular.setText("");
         documento.setText("");
 
+        username.requestFocus();
+
 
     }
 
