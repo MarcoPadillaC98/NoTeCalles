@@ -1,6 +1,11 @@
 package com.example.notecalles.activity;
 
+import android.content.ClipData;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -8,6 +13,7 @@ import com.example.notecalles.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,6 +25,8 @@ import com.example.notecalles.databinding.ActivityInicioBinding;
 
 public class InicioActivity extends AppCompatActivity {
 
+
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInicioBinding binding;
 
@@ -28,6 +36,7 @@ public class InicioActivity extends AppCompatActivity {
 
         binding = ActivityInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         setSupportActionBar(binding.appBarInicio.toolbar);
         binding.appBarInicio.toolbar.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +64,24 @@ public class InicioActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.inicio, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.it_cerrarsesion:
+                this.logout();
+                break;
+        }return super.onOptionsItemSelected(item);
+    }
+
+    public void logout() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove("username");
+        editor.apply();
+        this.finish();
+
     }
 
     @Override

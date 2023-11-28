@@ -239,6 +239,7 @@ public class RegistroActivity extends AppCompatActivity {
                                 Intent i = new Intent(RegistroActivity.this,LoginActivity.class);
                                 startActivity(i);
                                 Toast.makeText(RegistroActivity.this,"El usuario se creo correctamente",Toast.LENGTH_SHORT).show();
+                                clear();
                             }
 
                         }
@@ -290,6 +291,17 @@ public class RegistroActivity extends AppCompatActivity {
             txtIDocumentoR.setErrorEnabled(false);
         }
         return retorno;
+    }
+
+    private void clear(){
+        username.setText("");
+        password.setText("");
+        nombre.setText("");
+        apellido.setText("");
+        celular.setText("");
+        documento.setText("");
+
+
     }
 
 
