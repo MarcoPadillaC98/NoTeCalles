@@ -19,6 +19,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button btn_Login,btn_CrearCuenta;
@@ -124,11 +126,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
     }
+
+
 
     private boolean validar(){
 
@@ -151,4 +151,22 @@ public class LoginActivity extends AppCompatActivity {
         }
         return retorno;
     }
-}
+
+    @Override
+    public void onBackPressed() {
+
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE).setTitleText("has oprimido el botón atrás")
+                .setContentText("¿Quieres cerrar la aplicación?")
+                .setCancelText("No, Cancelar!").setConfirmText("Sí, Cerrar")
+                .showCancelButton(true).setCancelClickListener(sDialog -> {
+                    sDialog.dismissWithAnimation();
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("Operación cancelada")
+                            .setContentText("No saliste de la app")
+                            .show();
+                }).setConfirmClickListener(sweetAlertDialog -> {
+                    sweetAlertDialog.dismissWithAnimation();
+                    System.exit(0);
+                }).show();
+    }
+
+    }
