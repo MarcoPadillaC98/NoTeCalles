@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -39,7 +40,8 @@ public class PublicarFragment extends Fragment{
     Spinner spn_tipos;
     EditText fecha;
 
-    DatabaseReference mDataBase;
+    FirebaseDatabase database;
+
 
     private int dia,mes,ano;
     private FragmentPublicarBinding binding;
@@ -69,11 +71,33 @@ public class PublicarFragment extends Fragment{
 
         Button Calendario = view.findViewById(R.id.imb_Calendario);
         EditText fecha=view.findViewById(R.id.etFecha);
-        Spinner spn_tipos = view.findViewById(R.id.spn_Elegirtipo);
-        mDataBase = FirebaseDatabase.getInstance().getReference();
+        final Spinner spn_tipos = view.findViewById(R.id.spn_Elegirtipo);
+
+        database = FirebaseDatabase.getInstance();
+        DatabaseReference ref1 = database.getReference("Tipos");
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.combo_tipos, android.R.layout.simple_spinner_item);
+        spn_tipos.setAdapter(adapter);
 
 
-        cargarTipo();
+        ref1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                final List<String> tipos = new ArrayList<>();
+                for(DataSnapshot tiposSnapshot : snapshot.getChildren()){
+                    String tipoName = tiposSnapshot.child("nombre").getValue(String.class);
+                }
+                ArrayAdapter<String> tiposAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,tipos);
+                tiposAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+                spn_tipos.setAdapter(tiposAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
@@ -103,27 +127,6 @@ public class PublicarFragment extends Fragment{
 
     }
 
-    public void cargarTipo(){
-        List<Tipo> tipo = new ArrayList<>();
-        mDataBase.child("Tipos").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for(DataSnapshot ds: snapshot.getChildren()){
-                        String id = ds.getKey();
-                        String nombre = ds.child("nombre").getValue().toString();
-                        tipo.add(new Tipo(nombre,id));
-                    }
-                    ArrayAdapter<Tipo> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line,tipo);
-                    spn_tipos.setAdapter(arrayAdapter);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
 }
