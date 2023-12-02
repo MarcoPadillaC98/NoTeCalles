@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.publicar.PublicarFragment">
+    tools:context=".activity.ui.publicar.PublicarFragment"
+    android:id="@+id/PublicarF">
 
     <TextView
         android:id="@+id/txtMisPublicaciones"
@@ -211,6 +212,48 @@
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toEndOf="@+id/btn_GuardarPub"
         app:layout_constraintTop_toBottomOf="@+id/chk_Anonimo" />
+
+    <EditText
+        android:id="@+id/et_lat"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:hint="lat"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_GuardarPub"
+        tools:ignore="MissingConstraints"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/et_lon"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="long"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_lat"
+        tools:ignore="MissingConstraints"
+        android:visibility="invisible"/>
+    <EditText
+        android:id="@+id/et_sp"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="spinner"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_lon"
+        tools:ignore="MissingConstraints"
+        android:visibility="invisible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

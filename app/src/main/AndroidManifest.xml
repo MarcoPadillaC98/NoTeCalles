@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,14 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoTeCalles"
         tools:targetApi="31">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAgJ9Mifdw25ordIttjHnwCOXj90w6nmWc"/>
+        <activity
+            android:name=".activity.InicioActivity"
+
+            android:exported="false" />
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.ui.glosario.g_CiberacosoActivity"
@@ -36,8 +43,8 @@
             android:label="@string/title_activity_inicio"
             android:theme="@style/Theme.NoTeCalles.NoActionBar" />
         <activity
+            android:name=".activity.UbicacionActivity"
 
-            android:name=".activity.InicioActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
