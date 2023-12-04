@@ -21,6 +21,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -32,6 +34,7 @@ import com.example.notecalles.activity.UbicacionActivity;
 import com.example.notecalles.databinding.FragmentPublicarBinding;
 import com.example.notecalles.model.Publicacion;
 import com.example.notecalles.model.Tipo;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -112,6 +115,8 @@ public class PublicarFragment extends Fragment{
         edtfecha=view.findViewById(R.id.etFecha);
         edtusername = view.findViewById(R.id.etUsernameCrear);
         edtusername.setText(current.getEmail());
+
+
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -230,17 +235,27 @@ public class PublicarFragment extends Fragment{
                     }
                 });
 
+
                 if(TextUtils.isEmpty(hecho)){
                     Toast.makeText(getActivity(),"Ingrese la descripcion",Toast.LENGTH_LONG).show();
                 }else if(TextUtils.isEmpty(fecha)) {
                     Toast.makeText(getActivity(), "Ingrese la fecha", Toast.LENGTH_LONG).show();
-                }else{
+                }else {
                     Publicacion publicacion = new Publicacion(tipo,hecho,fecha,username,Double.valueOf(latitud),Double.valueOf(longitud));
-                    databaseReference.child("publicaciones").push().setValue(publicacion);
+                    //databaseReference.child("publicaciones").push().setValue(publicacion);
+                    //databaseReference.child("publicaciones").child(username).setValue(publicacion);
+                    databaseReference = database.getReference("publicaciones");
+                    databaseReference.child(tipo).setValue(publicacion);
                     Toast.makeText(getActivity(),"Se creo correctamente",Toast.LENGTH_SHORT).show();
+
+
+
+
 
                 }
             }
         });
     }
+
+
 }

@@ -40,8 +40,14 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads-base:22.5.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    //Recycler
     implementation ("com.github.f0ris.sweetalert:library:1.6.2")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")

@@ -140,13 +140,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputFecha">
+        app:layout_constraintTop_toBottomOf="@+id/InputFecha"
+        android:digits="abcdefghijklmnopqrztuvwxyz 1234567890">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsernameCrear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:accessibilityLiveRegion="none"
+            android:digits="abcdefghijklmnopqrztuvwxyz 1234567890"
             android:enabled="false"
             android:inputType="text"
             android:textColor="#000000" />
