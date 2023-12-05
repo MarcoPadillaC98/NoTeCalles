@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_otrasPublicaciones"
-        android:name="com.example.notecalles.activity.ui.otraspublicaciones.OtrasPublicacionesFragment"
+        android:name="com.example.notecalles.activity.ui.otras.otherspubs.MisPublicacionesFragment"
         android:label="@string/menu_OtrasPublicaciones"
         tools:layout="@layout/fragment_otraspublicaciones" />
     <fragment

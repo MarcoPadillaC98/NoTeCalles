@@ -158,6 +158,7 @@ public class PublicarFragment extends Fragment{
 
 
         guardarDatos();
+        //guardarTodos();
 
         //DatabaseReference ref1 = database.getReference("Tipos");
 
@@ -260,7 +261,8 @@ public class PublicarFragment extends Fragment{
                     //databaseReference.child("publicaciones").child(username).setValue(publicacion);
                     databaseReference = database.getReference("publicaciones");
                     databaseReference.child(username).push().setValue(publicacion);
-                    databaseReference.child("").push().setValue(publicacion);
+                    databaseReference.child("todos").push().setValue(publicacion);
+                    //databaseReference.child("").push().setValue(publicacion);
                     Toast.makeText(getActivity(),"Se creo correctamente",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(),MisPublicacionesFragment.class));
 
@@ -272,6 +274,49 @@ public class PublicarFragment extends Fragment{
             }
         });
     }
+    /*private void guardarTodos() {
+        btn_SavePub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tipo  = edttipo.getText().toString().trim();
+                String hecho = edthecho.getText().toString().trim();
+                String latitud = inv_lat.getText().toString().trim();
+                String longitud = inv_long.getText().toString().trim();
+                String fecha = edtfecha.getText().toString().trim();
+                String username = edtusername.getText().toString().trim();
+                btn_Imagen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        startActivityForResult(intent,GALLERY_INTENT);
+
+                    }
+                });
+
+
+                if(TextUtils.isEmpty(hecho)){
+                    Toast.makeText(getActivity(),"Ingrese la descripcion",Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(fecha)) {
+                    Toast.makeText(getActivity(), "Ingrese la fecha", Toast.LENGTH_LONG).show();
+                }else {
+                    Publicacion publicacion = new Publicacion(tipo,hecho,fecha,username,Double.valueOf(latitud),Double.valueOf(longitud));
+                    //databaseReference.child("publicaciones").push().setValue(publicacion);
+                    //databaseReference.child("publicaciones").child(username).setValue(publicacion);
+                    databaseReference = database.getReference("publicaciones");
+
+                    databaseReference.child("").push().setValue(publicacion);
+                    Toast.makeText(getActivity(),"Se creo correctamente",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(),MisPublicacionesFragment.class));
+
+
+
+
+
+                }
+            }
+        });
+    }*/
 
     void checkuserstatus(){
         SharedPreferences sharedPreferences= getContext().getSharedPreferences("logindata", MODE_PRIVATE);
