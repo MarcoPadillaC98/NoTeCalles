@@ -24,6 +24,10 @@
             android:name=".activity.InicioActivity"
 
             android:exported="false" />
+
+        <activity
+            android:name=".activity.ui.publicar.PublicarFragment"
+            android:exported="false" />
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">

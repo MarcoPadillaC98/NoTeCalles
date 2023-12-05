@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_mispublicaciones">
+    app:startDestination="@id/nav_publicar">
 
     <fragment
         android:id="@+id/nav_mispublicaciones"
@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_nav_publicar_to_nav_mispublicaciones"
             app:destination="@id/nav_mispublicaciones" />
+        <action
+            android:id="@+id/action_nav_publicar_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/nav_otrasPublicaciones"
@@ -71,5 +74,10 @@
         android:name="com.example.notecalles.activity.UbicacionActivity"
         android:label="activity_ubicacion"
         tools:layout="@layout/activity_ubicacion" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.notecalles.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 
 </navigation>

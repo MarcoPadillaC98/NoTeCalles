@@ -2,8 +2,10 @@ package com.example.notecalles;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,11 +15,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.notecalles.activity.InicioActivity;
+import com.example.notecalles.activity.ui.publicar.PublicarFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -25,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btn_Login,btn_CrearCuenta;
     EditText username,password;
+
     FirebaseAuth mAuth;
     private TextInputLayout txt_InputUsernameLogin,txt_InputPasswordLogin;
 
@@ -42,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btn_CrearCuenta = findViewById(R.id.btnCrearcuenta);
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
 
         btn_CrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +65,24 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+
+
+
         btn_Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!validateUsername() | !validatePassword()){
+
+
+                }else {
+                    checkUser();
+                }
+
+            }
+        });
+
+
+        /*btn_Login.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -72,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
         //Sirve para quitar sombra a los textos ya completados
         username.addTextChangedListener(new TextWatcher() {
@@ -112,7 +141,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void login() {
+
+
+    /*private void login() {
         String User = username.getText().toString();
         String Pass = password.getText().toString();
 
@@ -127,11 +158,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 
 
 
-    private boolean validar(){
+    /*private boolean validar(){
 
         boolean retorno = true;
         String  usuario , pass;
@@ -151,6 +182,64 @@ public class LoginActivity extends AppCompatActivity {
             txt_InputPasswordLogin.setErrorEnabled(false);
         }
         return retorno;
+    }*/
+
+    public Boolean validateUsername(){
+        String val = username.getText().toString();
+        if(val.isEmpty()){
+            username.setError("Usuario no encontrado");
+            return false;
+        }else {
+            username.setError(null);
+            return true;
+        }
+    }
+
+    public Boolean validatePassword(){
+        String val = password.getText().toString();
+        if(val.isEmpty()){
+            password.setError("Password incorrecta");
+            return false;
+        }else {
+            password.setError(null);
+            return true;
+        }
+    }
+
+    public void checkUser(){
+        String userUsername = username.getText().toString().trim();
+        String userPassword = password.getText().toString().trim();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("usuarios");
+        Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
+
+        checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    username.setError(null);
+                    String passwordFromDb = snapshot.child(userUsername).child("password").getValue(String.class);
+
+                    if(passwordFromDb.equals(userPassword)){
+                        username.setError(null);
+                        Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
+                        saveData(userUsername);
+                        startActivity(intent);
+                    }else {
+                        username.setError("Credenciales invalidas");
+                        password.requestFocus();
+                    }
+                }else {
+                    username.setError("Usuario no existe");
+                    username.requestFocus();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -178,4 +267,16 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    void saveData(String username){
+        SharedPreferences sharedPreferences = getSharedPreferences("logindata",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("logincounter",true);
+        editor.putString("usern",username);
+        editor.apply();
+        startActivity(new Intent(LoginActivity.this, InicioActivity.class));
+        finish();
+
     }
+
+
+}

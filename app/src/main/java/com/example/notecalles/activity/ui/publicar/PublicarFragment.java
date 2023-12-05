@@ -1,7 +1,11 @@
 package com.example.notecalles.activity.ui.publicar;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -30,7 +34,9 @@ import androidx.navigation.Navigation;
 import com.example.notecalles.LoginActivity;
 import com.example.notecalles.R;
 import com.example.notecalles.RegistroActivity;
+import com.example.notecalles.activity.InicioActivity;
 import com.example.notecalles.activity.UbicacionActivity;
+import com.example.notecalles.activity.ui.mispublicaciones.MisPublicacionesFragment;
 import com.example.notecalles.databinding.FragmentPublicarBinding;
 import com.example.notecalles.model.Publicacion;
 import com.example.notecalles.model.Tipo;
@@ -114,8 +120,13 @@ public class PublicarFragment extends Fragment{
         //imagen = view.findViewById(R.id.btn_IngresarImagen);
         edtfecha=view.findViewById(R.id.etFecha);
         edtusername = view.findViewById(R.id.etUsernameCrear);
-        edtusername.setText(current.getEmail());
 
+        checkuserstatus();
+
+
+        //edtusername.setText(current.getEmail());
+
+        //checkuserstatus();
 
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -123,8 +134,9 @@ public class PublicarFragment extends Fragment{
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(checkBox.isChecked()){
                     edtusername.setText("Anonimo");
-                }else{
-                    edtusername.setText(current.getEmail());
+                }else {
+                    //edtusername.setText(current.getEmail());
+                   checkuserstatus();
                 }
             }
         });
@@ -141,7 +153,9 @@ public class PublicarFragment extends Fragment{
         if(getArguments()!=null){
             inv_lat.setText(this.getArguments().getString("lat"));
             inv_long.setText(this.getArguments().getString("lon"));
+            //edtusername.setText(this.getArguments().getString("user"));
         }
+
 
         guardarDatos();
 
@@ -245,8 +259,10 @@ public class PublicarFragment extends Fragment{
                     //databaseReference.child("publicaciones").push().setValue(publicacion);
                     //databaseReference.child("publicaciones").child(username).setValue(publicacion);
                     databaseReference = database.getReference("publicaciones");
-                    databaseReference.child(tipo).setValue(publicacion);
+                    databaseReference.child(username).push().setValue(publicacion);
+                    databaseReference.child("").push().setValue(publicacion);
                     Toast.makeText(getActivity(),"Se creo correctamente",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(),MisPublicacionesFragment.class));
 
 
 
@@ -255,6 +271,20 @@ public class PublicarFragment extends Fragment{
                 }
             }
         });
+    }
+
+    void checkuserstatus(){
+        SharedPreferences sharedPreferences= getContext().getSharedPreferences("logindata", MODE_PRIVATE);
+        Boolean counter=sharedPreferences.getBoolean("logincounter",Boolean.valueOf(String.valueOf(MODE_PRIVATE)));
+        String user=sharedPreferences.getString("usern",String.valueOf(MODE_PRIVATE));
+        if (counter){
+            edtusername.setText(user);
+        }
+        else{
+            startActivity(new Intent(getActivity(),PublicarFragment.class));
+
+
+        }
     }
 
 

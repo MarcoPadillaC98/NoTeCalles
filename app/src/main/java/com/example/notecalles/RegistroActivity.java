@@ -14,12 +14,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.notecalles.model.Usuarios;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -32,6 +35,8 @@ public class RegistroActivity extends AppCompatActivity {
     Button btn_registrar,btn_IniciarSesion;
     EditText username,password,nombre,apellido,celular,documento;
     private TextInputLayout txtIUsernameR, txtIPasswordR,txtINameR, txtIApellidoR, txtINumeroR, txtIDocumentoR;
+    FirebaseDatabase database;
+    DatabaseReference reference;
     FirebaseFirestore mFirestore;
     FirebaseAuth mAuth;
 
@@ -71,8 +76,32 @@ public class RegistroActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        
+
         btn_registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("usuarios");
+
+                String User = username.getText().toString();
+                String Pass = password.getText().toString();
+                String Nom = nombre.getText().toString();
+                String Ape = apellido.getText().toString();
+                String Cel = celular.getText().toString();
+                String Doc = documento.getText().toString();
+
+                Usuarios usuarios = new Usuarios(User,Pass,Nom,Ape,Cel,Doc);
+                reference.child(User).setValue(usuarios);
+
+                Toast.makeText(RegistroActivity.this,"El usuario se creo correctamente",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
+        
+        /*btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
@@ -86,7 +115,7 @@ public class RegistroActivity extends AppCompatActivity {
                     Toast.makeText(RegistroActivity.this,"Se ha producido un error",Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
         //Quitar sombra a los InputsLayout que ya estan completos
         username.addTextChangedListener(new TextWatcher() {
@@ -191,7 +220,7 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 
-    private void register() {
+    /*private void register() {
 
         String User = username.getText().toString();
         String Pass = password.getText().toString();
@@ -250,7 +279,7 @@ public class RegistroActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 
     //Validar InputsLayouts
     private boolean validarRegistro(){
