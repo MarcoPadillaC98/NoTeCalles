@@ -47,6 +47,7 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation ("com.orhanobut:dialogplus:1.11@aar")
 
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-auth")

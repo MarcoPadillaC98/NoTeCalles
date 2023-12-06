@@ -56,6 +56,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class PublicarFragment extends Fragment{
 
@@ -256,7 +258,8 @@ public class PublicarFragment extends Fragment{
                 }else if(TextUtils.isEmpty(fecha)) {
                     Toast.makeText(getActivity(), "Ingrese la fecha", Toast.LENGTH_LONG).show();
                 }else {
-                    Publicacion publicacion = new Publicacion(tipo,hecho,fecha,username,Double.valueOf(latitud),Double.valueOf(longitud));
+                    Publicacion publicacion = new Publicacion(tipo,fecha,hecho,username,Double.valueOf(latitud),Double.valueOf(longitud));
+
                     //databaseReference.child("publicaciones").push().setValue(publicacion);
                     //databaseReference.child("publicaciones").child(username).setValue(publicacion);
                     databaseReference = database.getReference("publicaciones");
@@ -330,6 +333,22 @@ public class PublicarFragment extends Fragment{
 
 
         }
+    }
+
+    public void onBackPressed() {
+
+        new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE).setTitleText("Deseas salir de la app")
+                .setContentText("¿Estás seguro?")
+                .setCancelText("No, Cancelar!").setConfirmText("Sí, Cerrar")
+                /*.showCancelButton(true).setCancelClickListener(sDialog -> {
+                    sDialog.dismissWithAnimation();
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE).setTitleText("Operación cancelada")
+                            .setContentText("No saliste de la app")
+                            .show();
+                })*/.setConfirmClickListener(sweetAlertDialog -> {
+                    sweetAlertDialog.dismissWithAnimation();
+                    System.exit(0);
+                }).show();
     }
 
 

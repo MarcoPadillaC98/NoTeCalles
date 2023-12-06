@@ -9,7 +9,7 @@ public class Publicacion {
         super();
     }
 
-    public Publicacion(String tipo, String fecha, String hecho, String username, Double latitud, Double longitud) {
+    public Publicacion(String tipo, String fecha,String hecho, String username, Double latitud, Double longitud) {
         this.tipo = tipo;
         this.fecha = fecha;
         this.hecho = hecho;
@@ -29,7 +29,6 @@ public class Publicacion {
     public String getFecha() {
         return fecha;
     }
-
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }

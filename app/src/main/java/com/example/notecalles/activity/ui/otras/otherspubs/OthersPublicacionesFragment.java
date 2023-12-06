@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,8 @@ public class OthersPublicacionesFragment extends Fragment {
     RecyclerView recyclerView;
     OthersPubsAdapter otherAdapter;
 
+    EditText username;
+
    private FragmentMispublicacionesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -45,7 +48,9 @@ public class OthersPublicacionesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv_mispublicaciones);
+        EditText edtusername = view.findViewById(R.id.etUsernameCrear);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         listar();
 
     }
@@ -69,6 +74,8 @@ public class OthersPublicacionesFragment extends Fragment {
     }
 
     void listar(){
+
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseRecyclerOptions<Publicacion> options =

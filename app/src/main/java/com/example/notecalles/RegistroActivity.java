@@ -96,6 +96,7 @@ public class RegistroActivity extends AppCompatActivity {
                 Toast.makeText(RegistroActivity.this,"El usuario se creo correctamente",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
 
 
             }
