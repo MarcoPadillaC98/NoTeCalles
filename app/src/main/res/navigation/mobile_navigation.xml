@@ -49,10 +49,14 @@
         android:label="@string/menu_OtrasPublicaciones"
         tools:layout="@layout/fragment_otraspublicaciones" />
     <fragment
-        android:id="@+id/FAQFragment"
+        android:id="@+id/nav_faq"
         android:name="com.example.notecalles.activity.ui.FAQ.FAQFragment"
         android:label="@string/menu_Ayuda"
-        tools:layout="@layout/fragment_faq" />
+        tools:layout="@layout/fragment_faq" >
+        <action
+            android:id="@+id/action_nav_faq_to_puntosActivity"
+            app:destination="@id/puntosActivity" />
+    </fragment>
 
     <activity
         android:id="@+id/g_LaboralActivity"
@@ -79,5 +83,10 @@
         android:name="com.example.notecalles.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/puntosActivity"
+        android:name="com.example.notecalles.PuntosActivity"
+        android:label="activity_puntos"
+        tools:layout="@layout/activity_puntos" />
 
 </navigation>
