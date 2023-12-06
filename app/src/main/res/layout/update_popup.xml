@@ -29,7 +29,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:id="@+id/txtUsernameUpdate"/>
+        android:id="@+id/txtUsernameUpdate"
+        android:enabled="false"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -46,7 +47,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:id="@+id/txt_TipoUpdate"/>
+        android:id="@+id/txt_TipoUpdate"
+        android:enabled="false"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -80,7 +82,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:id="@+id/txtFechaUpdate"/>
+        android:id="@+id/txtFechaUpdate"
+        android:enabled="false"/>
 
     <Button
         android:layout_width="match_parent"
