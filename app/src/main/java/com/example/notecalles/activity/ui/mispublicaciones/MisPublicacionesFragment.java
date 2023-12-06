@@ -91,7 +91,6 @@ public class MisPublicacionesFragment extends Fragment {
         String user=sharedPreferences.getString("usern",String.valueOf(MODE_PRIVATE));
         if (counter){
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
             FirebaseRecyclerOptions<Publicacion> options =
                     new FirebaseRecyclerOptions.Builder<Publicacion>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("publicaciones").child(user), Publicacion.class)

@@ -29,6 +29,9 @@
             android:name=".activity.ui.publicar.PublicarFragment"
             android:exported="false" />
         <activity
+            android:name=".activity.ui.otras.otherspubs.OthersPublicacionesFragment"
+            android:exported="false" />
+        <activity
             android:name=".activity.ui.mispublicaciones.MisPublicacionesFragment"
             android:exported="false" />
         <activity
